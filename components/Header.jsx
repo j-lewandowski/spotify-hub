@@ -30,21 +30,35 @@ export const Header = () => {
         className="flex items-center justify-center h-full hover:cursor-pointer"
       >
         <FaChartSimple className="text-gradient mr-2 h-10 w-10" />
-        <p className="font-bold text-white md:text-2xl">Spotify Stats</p>
+        <p className="font-bold text-white md:text-2xl">Spotify Hub</p>
       </Link>
-      {!loggedIn ? (
+      {loggedIn ? (
+        <ul className="flex items-center justify-center space-x-12">
+          <p
+            className="font-bold text-white hover:cursor-pointer hover:text-secondary duration-150"
+            onClick={() => router.push("/home")}
+          >
+            Home
+          </p>
+          <p
+            className="font-bold text-white hover:cursor-pointer hover:text-secondary duration-150"
+            onClick={() => router.push("/profile")}
+          >
+            Profile
+          </p>
+          <p
+            className="font-bold text-white hover:cursor-pointer hover:text-secondary duration-150"
+            onClick={handleLogout}
+          >
+            Sign Out
+          </p>
+        </ul>
+      ) : (
         <p
           className="font-bold text-white hover:cursor-pointer hover:text-secondary duration-150"
           onClick={handleLogIn}
         >
-          Login
-        </p>
-      ) : (
-        <p
-          className="font-bold text-white hover:cursor-pointer hover:text-secondary duration-150"
-          onClick={handleLogout}
-        >
-          Logout
+          Sign In
         </p>
       )}
     </div>

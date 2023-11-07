@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth";
 const font = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Spotify stats",
+  title: "Spotify Hub",
   description: "Stats for spotify",
 };
 
