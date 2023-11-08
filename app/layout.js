@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import { Header } from "@/components/Header";
 import SessionProvider from "../components/SessionProvider";
 import { getServerSession } from "next-auth";
+import { DataContextProvider } from "@/context/DataContext";
 
 const font = Montserrat({ subsets: ["latin"] });
 
@@ -19,8 +20,10 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={`${font.className} relative flex flex-col`}>
         <SessionProvider session={session}>
-          <Header />
-          {children}
+          <DataContextProvider>
+            <Header />
+            {children}
+          </DataContextProvider>
         </SessionProvider>
       </body>
     </html>
