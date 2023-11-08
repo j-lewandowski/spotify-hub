@@ -25,11 +25,43 @@ body,
   background: linear-gradient(45deg, #1db954 0%, #00a573 50%, #008f84 100%);
 }
 
+.column {
+  animation: animateHeight 1.5s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
 @keyframes animateHeight {
   from {
     height: 0px;
   }
   to {
-    height: 500px;
+    height: 100%;
+  }
+}
+
+.c1 {
+  animation-delay: 700ms;
+}
+
+.c2 {
+  animation-delay: 500ms;
+}
+
+.c3 {
+  animation-delay: 300ms;
+}
+
+.col-name {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Tekst jest niewidoczny */
+  }
+  to {
+    opacity: 1; /* Tekst staje się widoczny */
   }
 }
