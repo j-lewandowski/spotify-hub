@@ -48,7 +48,7 @@ export const OPTIONS = {
         token.refreshToken = account.refresh_token;
         token.accessTokenExpires = account.expires_at * 1000;
       }
-      if (token.accessTokenExpires && Date.now() > token.accessTokenExpires) {
+      if (token.accessTokenExpires && Date.now() < token.accessTokenExpires) {
         return token;
       }
       const newToken = await refreshAccessToken(token);
@@ -58,6 +58,7 @@ export const OPTIONS = {
     async session({ session, token, user }) {
       session.accessToken = token.accessToken;
       session.user.id = token.id;
+      session.error = token.error;
 
       return session;
     },

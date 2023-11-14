@@ -23,8 +23,8 @@ const HomePageContent = async () => {
           },
         }
       );
-      const resData = await response.json();
 
+      const resData = await response.json();
       return resData.items;
     } catch (error) {
       console.log(error);
@@ -35,11 +35,20 @@ const HomePageContent = async () => {
   const topTracks = await fetchTop("tracks");
 
   return (
-    <div className="w-full flex-1 flex flex-col items-center bg-primary">
-      <div className="w-full h-full grid grid-cols-2 grid-rows-5 gap-4 p-4">
-        <Platform type="artists" data={topArtists.slice(0, 3) || []} />
-        <Platform type="tracks" data={topTracks.slice(0, 3) || []} />
-        <div className="h-full w-full col-span-2 row-span-3 bg-neutral-800 hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-secondary duration-150">
+    <div className="w-full h-full flex flex-col items-center bg-primary">
+      <div className="w-full h-full grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-5 gap-8 md:gap-4 p-4">
+        <Platform
+          type="artists"
+          data={topArtists.slice(0, 3) || []}
+          title="Top artists | last 30 days"
+        />
+        <Platform
+          type="tracks"
+          data={topTracks.slice(0, 3) || []}
+          title="Top Tracks | last 30 days"
+        />
+        <div className="h-full w-full md:col-span-2 md:row-span-3 bg-neutral-800 ">
+          {/* hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-secondary duration-150 */}
           <div className="p-4 w-full h-full">
             <GenrePiechart />
           </div>

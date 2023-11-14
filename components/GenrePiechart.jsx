@@ -12,8 +12,8 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 const GenrePiechart = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full text-white gap-y-6">
-      <p className="text-5xl font-bold">Tu będzie wykres</p>
-      <p className="text-3xl font-semibold">Coming soon...</p>
+      <p className="text-2xl md:text-5xl font-bold">Tu będzie wykres</p>
+      <p className="text-xl md:text-3xl font-semibold">Coming soon...</p>
     </div>
   );
 };
