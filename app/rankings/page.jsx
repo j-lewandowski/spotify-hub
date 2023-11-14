@@ -8,6 +8,10 @@ import Navbutton from "@/components/Navbutton";
 import { FaArrowLeft } from "react-icons/fa6";
 import RankingListItem from "@/components/RankingListItem";
 import Selector from "@/components/Selector";
+import Spinner from "../loading";
+
+// @TODO
+// Fix range and type selector styles
 
 const Rankings = ({ searchParams }) => {
   const [type, setType] = useState(searchParams.type || "tracks");
@@ -37,7 +41,7 @@ const Rankings = ({ searchParams }) => {
   }, []);
 
   if (isLoading) {
-    return <div>Spinner...</div>;
+    return <Spinner />;
   }
 
   const rangeName = {

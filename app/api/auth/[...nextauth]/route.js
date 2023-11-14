@@ -1,6 +1,9 @@
 import NextAuth from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 
+// @TODO
+// Fix token refreshing issues
+
 async function refreshAccessToken(token) {
   try {
     const basicAuth = Buffer.from(
