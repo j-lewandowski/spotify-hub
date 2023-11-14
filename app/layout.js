@@ -18,11 +18,12 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${font.className} relative flex flex-col`}>
+      <body className={`${font.className} relative flex flex-col min-h-screen`}>
         <SessionProvider session={session}>
           <DataContextProvider>
             <Header />
-            {children}
+
+            <main className="pt-24 h-full w-full">{children}</main>
           </DataContextProvider>
         </SessionProvider>
       </body>

@@ -2,7 +2,7 @@ import { FaChartColumn, FaRankingStar, FaSpotify } from "react-icons/fa6";
 
 export default function Home() {
   return (
-    <div className="w-full flex-1 bg-primary flex flex-col items-center md:justify-center justify-start pt-32 md:pt-0">
+    <div className="w-full h-full flex-1 bg-primary flex flex-col items-center md:justify-center justify-start pt-32 md:pt-0">
       <div className="text-white flex flex-col items-center justify-center gap-y-4 px-4">
         <p className="md:text-7xl text-2xl font-extrabold">
           Stats for <span className="text-gradient">Spotify</span>
