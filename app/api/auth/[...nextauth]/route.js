@@ -4,6 +4,9 @@ import SpotifyProvider from "next-auth/providers/spotify";
 // @TODO
 // Fix token refreshing issues
 
+const SCOPES =
+  "user-read-currently-playing,user-read-recently-played,user-top-read,user-read-email,user-read-private";
+
 async function refreshAccessToken(token) {
   try {
     const basicAuth = Buffer.from(
@@ -39,8 +42,7 @@ export const OPTIONS = {
     SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID || "",
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET || "",
-      authorization:
-        "https://accounts.spotify.com/authorize?scope=user-read-currently-playing,user-read-recently-played,user-top-read,user-read-email",
+      authorization: "https://accounts.spotify.com/authorize?scope=" + SCOPES,
     }),
   ],
   callbacks: {
