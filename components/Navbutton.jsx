@@ -7,9 +7,9 @@ const Navbutton = ({ icon }) => {
   return (
     <button
       onClick={() => router.back()}
-      className="p-2 md:p-4 bg-secondary rounded-full text-black hover:scale-110 duration-150"
+      className="w-fit h-fit p-2 md:p-4 bg-secondary rounded-full text-black hover:scale-110 duration-150"
     >
-      <span>{icon}</span>
+      {icon}
     </button>
   );
 };

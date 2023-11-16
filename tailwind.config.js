@@ -13,8 +13,14 @@ const config = {
       animation: {
         slideUp: "animateHeight",
       },
+      boxShadow: {
+        platform: "0px 0px 80px 10px rgba(4, 4, 4, 1)",
+      },
     },
   },
   plugins: [],
+  corePlugin: {
+    preflight: false,
+  },
 };
 export default config;

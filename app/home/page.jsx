@@ -40,12 +40,12 @@ const HomePageContent = async () => {
         <Platform
           type="artists"
           data={topArtists.slice(0, 3) || []}
-          title="Top artists | last 30 days"
+          title="Top artists | Last 30 days"
         />
         <Platform
           type="tracks"
           data={topTracks.slice(0, 3) || []}
-          title="Top Tracks | last 30 days"
+          title="Top Tracks | Last 30 days"
         />
         <div className="h-full w-full md:col-span-2 md:row-span-3 bg-neutral-800 ">
           {/* hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-secondary duration-150 */}
