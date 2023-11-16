@@ -96,16 +96,27 @@ const Rankings = ({ searchParams }) => {
           setFilter={setFilter}
         />
       </div>
-      <ul className="w-full flex flex-col items-center justify-center mt-12 gap-y-2 md:gap-y-6">
-        {data.map((item, i) => (
-          <RankingListItem
-            key={item.id}
-            data={item}
-            index={i + 1}
-            type={filter.type.value}
-          />
-        ))}
-      </ul>
+      {!data || data.length === 0 ? (
+        <div className="w-full h-full bg-neutral-800 rounded-lg flex flex-1 flex-col items-center justify-center mt-12 mb-8">
+          <span className="text-3xl font-bold text-white">
+            No data found...
+          </span>
+          <span className="text-2xl font-semibold text-white">
+            Too little data :(
+          </span>
+        </div>
+      ) : (
+        <ul className="w-full flex flex-col items-center justify-center mt-12 gap-y-2 md:gap-y-6">
+          {data.map((item, i) => (
+            <RankingListItem
+              key={item.id}
+              data={item}
+              index={i + 1}
+              type={filter.type.value}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

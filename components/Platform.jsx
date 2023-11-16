@@ -2,6 +2,20 @@ import Link from "next/link";
 import { FaTrophy } from "react-icons/fa";
 
 const Platform = ({ type, data, title }) => {
+  if (!data || data == []) {
+    return (
+      <div className="w-full h-full bg-neutral-800 rounded-lg flex flex-col items-center justify-center md:row-span-2 row-span-1">
+        <span className="text-3xl font-bold text-white">No data found...</span>
+        <span className="text-2xl font-semibold text-white">
+          Too little data :(
+        </span>
+      </div>
+    );
+  }
+
+  while (data.length < 3) {
+    data.push({ name: "Artist" });
+  }
   const [first, second, third] = data;
 
   return (

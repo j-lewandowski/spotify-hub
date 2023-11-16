@@ -23,7 +23,7 @@ export default function Selector({ filter, setFilter, fields, type, label }) {
     <div className="relative flex flex-col items-center justify-between font-normal text-lg rounded-lg tracking-wider border-4 border-transparent active:border-secondary duration-300 active:text-white">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-neutral-800 p-4 w-48 flex items-center justify-between rounded-lg"
+        className="bg-neutral-800 p-4 w-48 flex items-center justify-between rounded-lg text-white"
       >
         {label}
         {!isOpen ? (

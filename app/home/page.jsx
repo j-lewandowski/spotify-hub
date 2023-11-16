@@ -15,7 +15,7 @@ const HomePageContent = async () => {
     // type == 'tracks' or 'artists'
     try {
       const response = await fetch(
-        `https://api.spotify.com/v1/me/top/${type}`,
+        `https://api.spotify.com/v1/me/top/${type}?limit=3`,
         {
           headers: {
             Authorization: `Bearer ${session.accessToken}`,
@@ -39,12 +39,12 @@ const HomePageContent = async () => {
       <div className="w-full h-full grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-5 gap-8 md:gap-4 p-4">
         <Platform
           type="artists"
-          data={topArtists.slice(0, 3) || []}
+          data={topArtists}
           title="Top artists | Last 30 days"
         />
         <Platform
           type="tracks"
-          data={topTracks.slice(0, 3) || []}
+          data={topTracks}
           title="Top Tracks | Last 30 days"
         />
         <div className="h-full w-full md:col-span-2 md:row-span-3 bg-neutral-800 ">
