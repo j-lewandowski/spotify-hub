@@ -24,7 +24,10 @@ const ProfilePageContent = async () => {
       <div className="overflow-hidden h-64 w-64 rounded-full flex items-center justify-center">
         <img
           alt="profile picture"
-          src={data.images[1].url}
+          src={
+            data.images[1].url ||
+            "https://i.kym-cdn.com/photos/images/original/002/122/095/1b8.png"
+          }
           className="w-full h-full"
         />
       </div>
