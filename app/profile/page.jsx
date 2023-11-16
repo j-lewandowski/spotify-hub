@@ -24,10 +24,7 @@ const ProfilePageContent = async () => {
       <div className="overflow-hidden h-64 w-64 rounded-full flex items-center justify-center">
         <img
           alt="profile picture"
-          src={
-            data.images[1].url ||
-            "https://i.kym-cdn.com/photos/images/original/002/122/095/1b8.png"
-          }
+          src={data.images[1].url || data.images[0].url}
           className="w-full h-full"
         />
       </div>
@@ -35,7 +32,7 @@ const ProfilePageContent = async () => {
         href={data.external_urls.spotify}
         className="text-3xl font-semibold underline underline-offset-8 hover:text-secondary hover:cursor-pointer transition-colors duration-150"
       >
-        {data.display_name}
+        {!data.display_name ? "Logged User" : data.display_name}
       </Link>
       <span className="text-2xl font-normal">{data.email}</span>
       <p className=" text-2xl md:text-5xl font-bold mt-24">
