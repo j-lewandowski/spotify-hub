@@ -24,7 +24,11 @@ const ProfilePageContent = async () => {
       <div className="overflow-hidden h-64 w-64 rounded-full flex items-center justify-center">
         <img
           alt="profile picture"
-          src={data.images[1].url || data.images[0].url}
+          src={
+            data.images[1].url ||
+            data.images[0].url ||
+            "https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+          }
           className="w-full h-full"
         />
       </div>
