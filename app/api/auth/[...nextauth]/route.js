@@ -55,7 +55,6 @@ export const OPTIONS = {
           user,
         };
       }
-
       if (token.accessTokenExpires && Date.now() < token.accessTokenExpires) {
         return token;
       }
