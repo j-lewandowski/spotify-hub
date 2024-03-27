@@ -50,7 +50,7 @@ const HomePageContent = async () => {
         <div className="h-full w-full md:col-span-2 md:row-span-3 bg-neutral-800 ">
           {/* hover:outline hover:outline-2 hover:outline-offset-4 hover:outline-secondary duration-150 */}
           <div className="p-4 w-full h-full">
-            <GenrePiechart />
+            <GenrePiechart data={topArtists} />
           </div>
         </div>
       </div>

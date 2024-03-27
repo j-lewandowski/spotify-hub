@@ -1,19 +1,64 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from "recharts";
+"use client";
+import { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
-const data = [
-  { name: "A", value: 400 },
-  { name: "B", value: 300 },
-  { name: "C", value: 300 },
-  { name: "D", value: 200 },
-];
+const GenrePiechart = ({ data }) => {
+  const chartContainer = useRef(null);
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const genresCount = {};
+  console.log(data);
 
-const GenrePiechart = () => {
+  // Przejdź przez wszystkie obiekty i zlicz wystąpienia gatunków
+  data.forEach((obj) => {
+    obj.genres.forEach((genre) => {
+      if (genresCount[genre]) {
+        genresCount[genre]++;
+      } else {
+        genresCount[genre] = 1;
+      }
+    });
+  });
+
+  const uniqueGenres = Object.keys(genresCount).map((genre) => ({
+    genre,
+    count: genresCount[genre],
+  }));
+
+  console.log(uniqueGenres);
+
+  useEffect(() => {
+    const chartData = {
+      labels: uniqueGenres.map((gen) => gen.genre),
+      datasets: [
+        {
+          label: "Popularity",
+          data: uniqueGenres.map((gen) => gen.count),
+          backgroundColor: uniqueGenres.map(
+            (gen) => "#" + Math.floor(Math.random() * 16777215).toString(16)
+          ),
+          hoverOffset: 4,
+        },
+      ],
+    };
+
+    const chartConfig = {
+      type: "pie",
+      data: chartData,
+    };
+
+    const ctx = chartContainer.current.getContext("2d");
+    const myChart = new Chart(ctx, chartConfig);
+
+    return () => {
+      myChart.destroy();
+    };
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center w-full h-full text-white gap-y-6">
-      <p className="text-2xl md:text-5xl font-bold">Tu będzie wykres</p>
-      <p className="text-xl md:text-3xl font-semibold">Coming soon...</p>
+      {/* <p className="text-2xl md:text-5xl font-bold">Tu będzie wykres</p>
+      <p className="text-xl md:text-3xl font-semibold">Coming soon...</p> */}
+      <canvas ref={chartContainer} />
     </div>
   );
 };
